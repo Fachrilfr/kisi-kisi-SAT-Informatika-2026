@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisi-Kisi Informatika XI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap');
+  :root {
+    --bg: #0d0f1a;
+    --card: #141728;
+    --border: #1e2340;
+    --accent: #5b8dee;
+    --accent2: #e05b8d;
+    --accent3: #5be0c1;
+    --text: #dce3f8;
+    --muted: #6b7494;
+    --tag-bg: #1a2040;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem;
+    background-image:
+      radial-gradient(ellipse at 10% 0%, #1a2255 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 100%, #1a1040 0%, transparent 55%);
+  }
+  .wrapper { max-width: 820px; margin: 0 auto; }
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  h1 { font-size: 2.1rem; font-weight: 700; line-height: 1.15; margin-bottom: 0.4rem; }
+  h1 span { color: var(--accent2); }
+  .subtitle { color: var(--muted); font-size: 0.88rem; font-weight: 300; }
+  .stats-row { display: flex; justify-content: center; gap: 2.5rem; margin-top: 1.8rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Space Mono', monospace; font-size: 1.8rem; font-weight: 700; color: var(--accent3); line-height: 1; }
+  .stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
+
+  .section { margin-bottom: 1.5rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.9rem 1.2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    cursor: pointer; user-select: none;
+    transition: border-color 0.2s;
+    margin-bottom: 0;
+  }
+  .section-header:hover { border-left-color: var(--accent2); }
+  .section-icon { font-size: 1.1rem; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: var(--tag-bg); border-radius: 8px; flex-shrink: 0; }
+  .section-title { font-weight: 600; font-size: 0.93rem; flex: 1; }
+  .section-meta { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); background: var(--tag-bg); padding: 0.2rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+  .chevron { color: var(--muted); font-size: 0.75rem; transition: transform 0.25s; }
+  .section.open .chevron { transform: rotate(90deg); }
+
+  .items-list { display: none; padding: 0.6rem 0.2rem 0; }
+  .section.open .items-list { display: block; }
+
+  .item-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+    animation: fadeSlide 0.25s ease forwards;
+  }
+  @keyframes fadeSlide { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+  .item-card:hover { border-color: rgba(91,141,238,0.4); }
+  .item-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); margin-top: 0.45rem; flex-shrink: 0; }
+  .item-text { font-size: 0.84rem; line-height: 1.55; color: var(--text); }
+
+  .tip-box {
+    background: linear-gradient(135deg, rgba(91,141,238,0.07), rgba(91,224,193,0.04));
+    border: 1px solid rgba(91,141,238,0.2);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    margin-top: 2rem;
+    font-size: 0.84rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .tip-box strong { color: var(--accent3); }
+  footer { text-align: center; margin-top: 2.5rem; font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
+
+  @media (max-width: 500px) { h1 { font-size: 1.55rem; } }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <span class="label">Kisi-Kisi Ujian</span>
+    <h1>Informatika <span>Kelas XI</span></h1>
+    <p class="subtitle">Pemrograman C++ — Sumatif Akhir Tahun</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">40</div><div class="stat-label">Soal PG</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Topik</div></div>
+      <div class="stat"><div class="stat-num">C++</div><div class="stat-label">Bahasa</div></div>
+    </div>
+  </header>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-icon">📜</div>
+      <div class="section-title">1. Sejarah & Latar Belakang C++</div>
+      <span class="section-meta">Topik 1</span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="items-list">
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Tokoh-tokoh penting dalam perkembangan bahasa pemrograman C++</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Asal-usul dan perkembangan nama C++ dari waktu ke waktu</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Institusi yang berperan dalam lahirnya C++</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Alasan dan keunggulan C++ dibanding bahasa lain untuk proyek berskala besar</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Contoh perangkat lunak populer yang dikembangkan menggunakan C++</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-icon">🏗️</div>
+      <div class="section-title">2. Struktur Dasar Program C++</div>
+      <span class="section-meta">Topik 2</span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="items-list">
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Bagian-bagian penyusun program C++ dan fungsinya masing-masing</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Peran preprocessor directive dan simbol yang digunakannya</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Kegunaan deklarasi variabel dan fungsi dalam program</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Pentingnya fungsi <code>main()</code> sebagai titik masuk program</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Pengaruh penghapusan library tertentu terhadap jalannya program</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-icon">🔢</div>
+      <div class="section-title">3. Tipe Data, Variabel & Input/Output</div>
+      <span class="section-meta">Topik 3</span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="items-list">
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Jenis-jenis tipe data dasar di C++ dan penggunaannya</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Cara memilih tipe data yang sesuai untuk menyimpan berbagai informasi</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Penggunaan perintah output (<code>cout</code>) dan input (<code>cin</code>)</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Karakter khusus dalam string seperti newline dan cara kerjanya</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-icon">⚙️</div>
+      <div class="section-title">4. Operator</div>
+      <span class="section-meta">Topik 4</span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="items-list">
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Operator aritmatika dan cara kerjanya termasuk pembagian sisa</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Operator perbandingan untuk membandingkan dua nilai</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Operator logika AND, OR, dan NOT serta perbedaan kegunaannya</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Menentukan hasil akhir dari ekspresi logika yang dikombinasikan</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Memilih operator yang tepat untuk kondisi dalam sebuah sistem</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-icon">🔀</div>
+      <div class="section-title">5. Struktur Algoritma & Percabangan</div>
+      <span class="section-meta">Topik 5</span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="items-list">
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Tiga struktur dasar algoritma: urutan, percabangan, dan perulangan</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Penggunaan struktur <code>if</code>, <code>if-else</code>, dan <code>if-else if</code></div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Cara kerja percabangan berlapis untuk kondisi yang lebih kompleks</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Mengidentifikasi kesalahan logika urutan pada sebuah algoritma</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Membaca dan menelusuri output dari kode percabangan</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-icon">🔁</div>
+      <div class="section-title">6. Perulangan (Looping)</div>
+      <span class="section-meta">Topik 6</span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="items-list">
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Jenis-jenis perulangan di C++ dan perbedaan penggunaannya</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Menentukan kapan menggunakan <code>for</code> dan kapan menggunakan <code>while</code></div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Menelusuri hasil output dari kode perulangan sederhana maupun bersyarat</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Mengenali kondisi yang menyebabkan perulangan tidak pernah berhenti</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Menelusuri nilai variabel yang berubah di setiap iterasi perulangan</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Mengidentifikasi kesalahan sintaks umum dalam kode perulangan</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <div class="section-icon">📦</div>
+      <div class="section-title">7. Array</div>
+      <span class="section-meta">Topik 7</span>
+      <span class="chevron">▶</span>
+    </div>
+    <div class="items-list">
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Konsep dasar array — pengertian dan kegunaannya dalam program</div></div>
+      <div class="item-card"><div class="item-dot"></div><div class="item-text">Cara mendeklarasikan dan mengakses elemen array menggunakan indeks</div></div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Tips belajar:</strong> Perbanyak latihan <strong>membaca kode dan menebak output</strong> (trace), serta <strong>menemukan kesalahan</strong> di kode yang sudah ada (debug). Dua kemampuan ini yang paling banyak diuji. Pastikan juga paham perbedaan konsep antar topik, bukan hanya hafal sintaksnya.
+  </div>
+
+  <footer>INFORMATIKA XI · SUMATIF AKHIR TAHUN · SMA PRAMITA</footer>
+</div>
+<script>
+  function toggle(h) { h.closest('.section').classList.toggle('open'); }
+</script>
+</body>
+</html>
